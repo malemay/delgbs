@@ -15,7 +15,7 @@ data should be extracted (the name must correspond to one of the columns
 of \code{data}).}
 }
 \value{
-
+a \code{data.frame} with the segments of a given individual.
 }
 \description{
 Extract the segments from a given individual

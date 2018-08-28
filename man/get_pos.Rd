@@ -31,5 +31,4 @@ should be tested).
 }
 \examples{
 NULL
-
 }

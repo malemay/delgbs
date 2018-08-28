@@ -21,7 +21,6 @@
 #'
 #' @examples
 #' NULL
-#'
 get_pos <- function(filename, minq = 30, strand_diff = FALSE) {
   # Initializing the scanning parameters
   if(strand_diff) {

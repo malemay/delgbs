@@ -8,8 +8,60 @@ segment(data_matrix, info_indices, chrom_col, pos_col, threshold_param,
   lambda_param = 2, verbose = TRUE)
 }
 \arguments{
-\item{verbose}{}
+\item{data_matrix}{a \code{data.frame} containing optional metadata columns
+and one or several columns of log2 ratios corresponding to individuals
+after which the columns are named.}
+
+\item{info_indices}{an integer vector. The indices of the metadata columns,
+such that these columns are not segmented. Typically, this will be
+\code{1:3} as the first three columns will be the chromosome and the lower
+and upper bounds of the genomic bins.}
+
+\item{chrom_col}{a character vector of length one. The name of the column
+containing the names of the chromosomes.}
+
+\item{pos_col}{a character vector of length one. The name of a column giving
+the genomic position of the bin (either lower or upper). This argument is
+only used to check that the bins are in increasing order in the
+\code{data.frame}, as this is needed for segmentation. It therefore does
+not matter whether this position is the lower or upper breakpoint of the
+bin.}
+
+\item{threshold_param}{a single numeric value. The multiplier that is applied
+to the standard deviation estimate to get the threshold that bounds the
+increase of the cost function. Higher values make the segmentation more
+sensitive to outliers, whereas lower values make it more robust to outliers.}
+
+\item{lambda_param}{a single numeric value. The penalty value used by the
+segmentation. Defaults to two.}
+
+\item{verbose}{a single logical value (\code{TRUE} or \code{FALSE}). Whether
+the progress of the segmentation should be printed. Defaults to \code{TRUE}.}
+}
+\value{
+To be completed.
 }
 \description{
-Segment the log2 ratios for a set of individuals
+This function is a wrapper around the function \code{\link[robseg]{Rob_seg.std}}
+of package \code{robseg} which segments all the log2 ratio profiles in the
+\code{data.frame} provided as input. This wrapper implements a set of
+parameters is is very narrow compared to the complete functionality of
+function  \code{\link[robseg]{Rob_seg.std}}. Notably, the loss function used
+here is the one that is robust to outliers as the cost function is bounded
+at a certain threshold. More information can be found on the \code{robseg}
+package's Github page and in the research paper describing the method (see
+the "see also")
+}
+\section{Source}{
+
+Link to \code{robseg}'s Github page: \url{https://github.com/guillemr/robust-fpop}
+
+Original description of the segmentation approach:
+Fearnhead, P., & G. Rigaill (2018) \emph{Changepoint Detection in the
+Presence of Outliers}. Journal of the American Statistical Association.
+DOI: 10.1080/01621459.2017.1385466
+}
+
+\examples{
+NULL
 }
