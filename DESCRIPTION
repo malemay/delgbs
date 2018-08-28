@@ -1,0 +1,39 @@
+Package: delgbs
+Type: Package
+Title: Detection of deletions and duplications from GBS data
+Version: 0.0.0.9000
+Date: 2018-08-27
+Authors@R: c(
+    person(given = "Marc-André", family = "Lemay", email = "marc-andre.lemay.2@ulaval.ca", role = c("aut", "cre")),
+    person(given = "Davoud", family = "Torkamaneh", email = "davoud.torkamaneh@gmail.com", role = "aut"),
+    person(given = "Guillem", family = "Rigaill", email = "guillem.rigaill@inra.fr", role = "aut"),
+    person(given = "Adrian O.", family = "Stec", email = "stecx002@umn.edu", role = "aut"),
+    person(given = "Robert M.", family = "Stupar", email = "stup0004@umn.edu", role = "aut"),
+    person(given = "François", family = "Belzile", email = "francois.belzile@fsaa.ulaval.ca", role = "aut")
+    )
+Imports: robseg,
+    Rsamtools,
+    ggplot2,
+    grid,
+    S4Vectors,
+    GenomicRanges,
+    IRanges,
+    BiocGenerics
+Depends: R(>= 3.5.0)
+Maintainer: Marc-André Lemay <marc-andre.lemay.2@ulaval.ca>
+Description: This package was designed to allow the detection of copy number
+    variation (CNV) from standard genotyping-by-sequencing (GBS) data. Developed
+    with populations of fast neutron mutants in mind, it compares the depth of
+    sequencing in discrete genomic windows between individuals, segments the
+    sequencing depth profiles to identify homozygous deletions, hemizygous
+    deletions, and duplications. The functions included in this package provide
+    the utilities needed for going from a set of BAM alignment files to a set
+    of CNVs as well as high-level plotting functions to allow visualizing the 
+    output. 
+License: GPL-3 | file LICENSE
+Encoding: UTF-8
+LazyData: TRUE
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1

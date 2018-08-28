@@ -1,0 +1,8 @@
+.DS_store
+.Rproj.user
+.Rhistory
+.RData
+inst/doc
+data/
+delgbs.Rproj
+
