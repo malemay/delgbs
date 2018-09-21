@@ -2,11 +2,12 @@ Package: delgbs
 Type: Package
 Title: Detection of deletions and duplications from GBS data
 Version: 0.0.0.9000
-Date: 2018-08-27
+Date: 2018-09-21
 Authors@R: c(
     person(given = "Marc-André", family = "Lemay", email = "marc-andre.lemay.2@ulaval.ca", role = c("aut", "cre")),
     person(given = "Davoud", family = "Torkamaneh", email = "davoud.torkamaneh@gmail.com", role = "aut"),
     person(given = "Guillem", family = "Rigaill", email = "guillem.rigaill@inra.fr", role = "aut"),
+    person(given = "Brian", family = "Boyle", email = "brian.boyle@ibis.ulaval.ca", role = "aut"),
     person(given = "Adrian O.", family = "Stec", email = "stecx002@umn.edu", role = "aut"),
     person(given = "Robert M.", family = "Stupar", email = "stup0004@umn.edu", role = "aut"),
     person(given = "François", family = "Belzile", email = "francois.belzile@fsaa.ulaval.ca", role = "aut")
