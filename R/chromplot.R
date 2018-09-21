@@ -51,12 +51,15 @@ chromplot <- function(log2_data, chrom, event_data = NULL, het_sites = NULL,
   log2_data$ind <- as.factor(log2_data$ind)
   ind_labels <- levels(log2_data$ind)
 
+  # Preparing data columns needed for plotting
+  log2_data$POSITION <- (log2_data$lower + log2_data$upper) / (2*10^6)
+
   # Creating the main plot, first without CNV and heterogeneity information
   cplot <-
     # Initializing the plot
     ggplot2::ggplot(data = log2_data) +
     # Plotting the log2 ratio data
-    ggplot2::geom_point(ggplot2::aes_string(x = ("lower" + "upper") / (2*10^6),
+    ggplot2::geom_point(ggplot2::aes_string(x = "POSITION",
                                             y = "log2_ratio"),
                         col = "blue", size = 0.1) +
     # Plotting each individual on its own row
@@ -96,20 +99,24 @@ chromplot <- function(log2_data, chrom, event_data = NULL, het_sites = NULL,
     arrow_y1 <- max(log2_data$log2_ratio, na.rm = TRUE)
     arrow_y2 <- (arrow_y1 - min(log2_data$log2_ratio, na.rm = TRUE)) / 5
 
+    # Preparing data columns needed for plotting
+    events$START    <- events$start / 10^6
+    events$END      <- events$end / 10^6
+
     # Adding the CNV information to the plot
     cplot <- cplot +
       # Adding thick horizontal lines to indicate the extent and location
       ggplot2::geom_segment(data = events,
-                            ggplot2::aes_string(x = "start" / 10^6,
-                                                xend = "end" / 10^6,
+                            ggplot2::aes_string(x = "START",
+                                                xend = "END",
                                                 y = "mean_log2",
                                                 yend = "mean_log2",
                                                 col = "type"),
                             size = 0.5) +
       # Adding arrows pointing down to highlight the location of the events
       ggplot2::geom_segment(data = events,
-                            ggplot2::aes_string(x = "start" / 10^6,
-                                                xend = "start" / 10^6,
+                            ggplot2::aes_string(x = "START",
+                                                xend = "START",
                                                 col = "type"),
                             y = arrow_y1, yend = arrow_y2,
                             arrow = grid::arrow(length = grid::unit(0.05, "npc")),
@@ -136,10 +143,15 @@ chromplot <- function(log2_data, chrom, event_data = NULL, het_sites = NULL,
     # Finding the minimum and maximum y positions of the rectangles
     ymin <- min(log2_data$log2_ratio, na.rm = TRUE)
     ymax <- max(log2_data$log2_ratio, na.rm = TRUE)
+
+    # Preparing data columns needed for plotting
+    het_sites$START    <- het_sites$start / 10^6
+    het_sites$STOP      <- het_sites$stop / 10^6
+
     # Adding the data to the plot
     cplot <- cplot +
       ggplot2::geom_rect(data = het_sites,
-                         ggplot2::aes_string(xmin = "start" / 10^6, xmax = "stop" / 10^6),
+                         ggplot2::aes_string(xmin = "START", xmax = "STOP"),
                          ymin = ymin, ymax = ymax, col = "transparent",
                          fill = "red", alpha = 0.1)
 
