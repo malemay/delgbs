@@ -6,7 +6,7 @@
 
 ## Installation
 
-*delgbs* can be installed directly in `R` by calling `devtools::install_github("malemay/delgbs")`. This will directly fetch the package from the GitHub and install it on your computer. This requires  [`devtools`](https://cran.r-project.org/web/packages/devtools/index.html) to be installed on your computer. This package is available from CRAN through the usual `ìnstall.packages()` interface.
+*delgbs* can be installed directly in `R` by calling `devtools::install_github("malemay/delgbs")`. This will directly fetch the package from GitHub and install it on your computer. This requires  [`devtools`](https://cran.r-project.org/web/packages/devtools/index.html) to be installed on your computer. This package is available from CRAN through the usual `ìnstall.packages()` interface.
 
 *delgbs* requires a few [Bioconductor](https://www.bioconductor.org/) packages to be installed on your computer. You can install them by running the following commands in `R`:
 
@@ -14,7 +14,7 @@
 {
 source("https://bioconductor.org/biocLite.R")
 biocLite()
-biocLite(c("Rsamtools", "S4Vectors", "GenomicRanges", "IRanges", "BiocGenerics))
+biocLite(c("Rsamtools", "S4Vectors", "GenomicRanges", "IRanges", "BiocGenerics"))
 }
 ```
 
@@ -29,5 +29,5 @@ None at the moment.
 ## Notes
 This software is provided without any guarantee. 
 
-Issues, bugs reports and questions can be shared on the GitHub page of the project or addressed to the package maintainer (see the package DESCRIPTION for contact information).
+Issues, bug reports and questions can be shared on the GitHub page of the project or addressed to the package maintainer (see the package DESCRIPTION for contact information).
 
