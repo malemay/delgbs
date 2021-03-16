@@ -37,7 +37,7 @@ get_pos <- function(filename, minq = 30, strand_diff = FALSE) {
   # Removing reads that have not been assigned a position
   bam <- bam[!is.na(bam$pos), ]
   # Keeping only reads that mapped to a chromosome (not scaffolds)
-  bam <- bam[grep("Chr", bam$rname),]
+  # bam <- bam[grep("Chr", bam$rname),] # commented out because this filter used to be hard-coded
 
   # Reads on the "+" strand are tallied according to their end position if
   #  requested (this is to allow a more consistent talling when a larger size
