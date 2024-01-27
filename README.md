@@ -26,6 +26,12 @@ The documentation for *delgbs* has yet to be completed. A vignette describing ty
 ## Known issues
 None at the moment.
 
+## Citation
+
+If you use this software, please cite:
+
+Lemay, MA., Torkamaneh, D., Rigaill, G. et al. Screening populations for copy number variation using genotyping-by-sequencing: a proof of concept using soybean fast neutron mutants. *BMC Genomics* 20, 634 (2019). [doi:10.1186/s12864-019-5998-1](https://doi.org/10.1186/s12864-019-5998-1)
+
 ## Notes
 This software is provided without any guarantee. 
 
